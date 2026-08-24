@@ -102,7 +102,7 @@
 #' for the "build a tsibble from scratch" demo. `Month` is left as
 #' character on purpose, for students to convert themselves.
 #' \describe{
-#'   \item{Month}{month, as character (e.g. `"2020 jan."`)}
+#'   \item{Month}{month, as character (e.g. `"2020 Jan"`)}
 #'   \item{y}{a simulated value}
 #' }
 #' @rdname timeseriesgraphics
