@@ -10,3 +10,100 @@
 #' }
 #' @source <https://seklima.met.no>
 "bergentemp"
+
+#' Example datasets: Time series graphics session
+#'
+#' A bundle of small example datasets used in the "Time series graphics"
+#' (BAN430 session 2) code companion and lecture notes. `a10`,
+#' `melsyd_economy`, `recent_production` and `vic_elec_2012` are ready-made
+#' tsibbles for the plotting demos. `bergen`, `tute1` and `z_month` are
+#' left raw/unconverted on purpose, for the "building a tsibble" and
+#' "handling different time formats" live-coding exercises.
+#'
+#' @format ## `a10`
+#' A tsibble with 204 rows and 2 columns: total monthly Australian
+#' antidiabetic drug sales (from `PBS`, ATC2 group "A10").
+#' \describe{
+#'   \item{Month}{month (`yearmonth`)}
+#'   \item{Cost}{cost, $ million}
+#' }
+#' @rdname timeseriesgraphics
+"a10"
+
+#' @format ## `bergen`
+#' A plain tibble (**not yet a tsibble**) with 23,991 rows and 4 columns:
+#' daily average temperature in Bergen (Florida).
+#' \describe{
+#'   \item{name}{weather station name}
+#'   \item{station}{weather station ID}
+#'   \item{date}{date, as character, format `"dd.mm.yyyy"`}
+#'   \item{temp}{average daily temperature in Celsius}
+#' }
+#' @source <https://seklima.met.no>
+#' @rdname timeseriesgraphics
+"bergen"
+
+#' @format ## `melsyd_economy`
+#' A tsibble with 282 rows and 4 columns: weekly economy-class passenger
+#' numbers on the Melbourne-Sydney route (from `ansett`).
+#' \describe{
+#'   \item{Week}{week (`yearweek`)}
+#'   \item{Airports}{route, always "MEL-SYD"}
+#'   \item{Class}{travel class, always "Economy"}
+#'   \item{Passengers}{passengers, '000}
+#' }
+#' @rdname timeseriesgraphics
+"melsyd_economy"
+
+#' @format ## `recent_production`
+#' A tsibble with 42 rows and 7 columns: quarterly Australian production
+#' from 2000 onwards (from `aus_production`).
+#' \describe{
+#'   \item{Quarter}{quarter (`yearquarter`)}
+#'   \item{Beer}{beer production, megalitres}
+#'   \item{Tobacco}{tobacco and cigarette production, tonnes}
+#'   \item{Bricks}{clay brick production, millions}
+#'   \item{Cement}{cement production, thousand tonnes}
+#'   \item{Electricity}{electricity production, GWh}
+#'   \item{Gas}{gas production, petajoules}
+#' }
+#' @rdname timeseriesgraphics
+"recent_production"
+
+#' @format ## `tute1`
+#' A tibble with 100 rows and 4 columns: quarterly sales, advertising
+#' budget and GDP for a small company, 1981-2005 (not yet a tsibble).
+#' \describe{
+#'   \item{Quarter}{date of the first day of the quarter}
+#'   \item{Sales}{quarterly sales}
+#'   \item{AdBudget}{advertising budget}
+#'   \item{GDP}{gross domestic product}
+#' }
+#' @source <http://OTexts.com/fpp3/extrafiles/tute1.csv>
+#' @rdname timeseriesgraphics
+"tute1"
+
+#' @format ## `vic_elec_2012`
+#' A tsibble with 17,568 rows and 5 columns: half-hourly Victorian
+#' electricity demand for 2012 (from `vic_elec`, filtered to
+#' `year(Time) == 2012`).
+#' \describe{
+#'   \item{Time}{date-time, 30 minute resolution}
+#'   \item{Demand}{electricity demand, MW}
+#'   \item{Temperature}{temperature in Melbourne, Celsius}
+#'   \item{Date}{calendar date}
+#'   \item{Holiday}{whether the day is a public holiday}
+#' }
+#' @rdname timeseriesgraphics
+"vic_elec_2012"
+
+#' @format ## `z_month`
+#' A tibble with 12 rows and 2 columns: a small simulated monthly example
+#' for the "build a tsibble from scratch" demo. `Month` is left as
+#' character on purpose, for students to convert themselves.
+#' \describe{
+#'   \item{Month}{month, as character (e.g. `"2020 jan."`)}
+#'   \item{y}{a simulated value}
+#' }
+#' @rdname timeseriesgraphics
+"z_month"
