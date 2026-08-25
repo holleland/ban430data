@@ -11,6 +11,21 @@
 #' @source <https://seklima.met.no>
 "bergentemp"
 
+#' Simulated hourly offshore wind power production, two locations
+#'
+#' Five years (2015-2019) of simulated hourly power production for two
+#' proposed Norwegian offshore wind farm locations. Used in the Time
+#' Series Graphics lab (the "which site would you build first" case).
+#'
+#' @format ## `windpower`
+#' A tsibble with 87,648 rows and 3 columns, keyed by `Place`:
+#' \describe{
+#'   \item{Place}{wind farm location: "Utsira Nord" or "Sørlig Nordsjø 2"}
+#'   \item{powerprod}{hourly power production, MW}
+#'   \item{datetime}{date-time, hourly resolution}
+#' }
+"windpower"
+
 #' Example datasets: Time series graphics session
 #'
 #' A bundle of small example datasets used in the "Time series graphics"
