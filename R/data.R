@@ -192,3 +192,20 @@
 #'   full repo: <https://github.com/TheEconomist/big-mac-data>
 #' @rdname decomposition
 "bigmac_norway"
+
+#' @format ## `hotel_guestnights`
+#' A tsibble with 486 rows and 2 columns: monthly hotel guest nights for
+#' the whole of Norway, all purposes combined, live from Statistics
+#' Norway's PxWebApi (table 14166) - already ready to use, no wrangling
+#' needed. Long history with pronounced summer seasonality and a genuine
+#' trend-cycle story (steady growth, then the 2020 COVID crash and
+#' recovery) - used for the in-class decomposition activity, deliberately
+#' a different series from `wholesale` (reserved for the Thursday lab).
+#' \describe{
+#'   \item{yearmonth}{month (`yearmonth`)}
+#'   \item{Guest nights}{number of guest nights at hotels and similar
+#'     accommodation establishments}
+#' }
+#' @source <https://www.ssb.no/statbank/table/14166>
+#' @rdname decomposition
+"hotel_guestnights"

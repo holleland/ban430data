@@ -6,6 +6,7 @@
 \alias{cpi}
 \alias{wholesale}
 \alias{bigmac_norway}
+\alias{hotel_guestnights}
 \title{Example datasets: Time series decomposition session}
 \format{
 ## `employment`
@@ -55,6 +56,20 @@ published that year's CPI yet.
 Only Norway is bundled here. The full Economist dataset covers ~57
 countries back to 2000 and is one `readr::read_csv()` away from the
 source URL below if you want to look at another country.
+
+## `hotel_guestnights`
+A tsibble with 486 rows and 2 columns: monthly hotel guest nights for
+the whole of Norway, all purposes combined, live from Statistics
+Norway's PxWebApi (table 14166) - already ready to use, no wrangling
+needed. Long history with pronounced summer seasonality and a genuine
+trend-cycle story (steady growth, then the 2020 COVID crash and
+recovery) - used for the in-class decomposition activity, deliberately
+a different series from `wholesale` (reserved for the Thursday lab).
+\describe{
+  \item{yearmonth}{month (`yearmonth`)}
+  \item{Guest nights}{number of guest nights at hotels and similar
+    accommodation establishments}
+}
 }
 \source{
 Statistics Norway
@@ -65,6 +80,8 @@ Statistics Norway
 
 <https://raw.githubusercontent.com/TheEconomist/big-mac-data/master/output-data/big-mac-raw-index.csv>,
   full repo: <https://github.com/TheEconomist/big-mac-data>
+
+<https://www.ssb.no/statbank/table/14166>
 }
 \usage{
 employment
@@ -74,6 +91,8 @@ cpi
 wholesale
 
 bigmac_norway
+
+hotel_guestnights
 }
 \description{
 A bundle of small example datasets used in the "Adjustments,
