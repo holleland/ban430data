@@ -5,7 +5,7 @@
 \alias{employment}
 \alias{cpi}
 \alias{wholesale}
-\alias{bigmac}
+\alias{bigmac_norway}
 \title{Example datasets: Time series decomposition session}
 \format{
 ## `employment`
@@ -38,23 +38,22 @@ no wrangling needed.
   \item{Wholesale and retail sales index}{index value}
 }
 
-## `bigmac`
-A tibble with 2,056 rows and 12 columns: The Economist's raw Big Mac
-index, all ~57 countries, semi-annual, 2000-2026. Left un-filtered and
-un-joined on purpose - the in-class activity is for students to pick
-a country, join it to `cpi` (or their own country's CPI), and
-inflation-adjust the local price themselves.
+## `bigmac_norway`
+A tsibble with 41 rows and 4 columns: Norway's Big Mac price
+(semi-annual, 2002-2026), already joined to an annual Norwegian CPI -
+ready to use directly, so the in-class inflation-adjustment activity
+takes ~5 minutes instead of being spent finding and merging data. The
+most recent 1-2 rows can have `cpi = NA` if Statistics Norway hasn't
+published that year's CPI yet.
 \describe{
   \item{date}{date of that survey round}
-  \item{iso_a3}{country code}
-  \item{currency_code}{local currency code}
-  \item{name}{country name}
-  \item{local_price}{Big Mac price in local currency}
-  \item{dollar_ex}{local currency units per US dollar}
+  \item{local_price}{Big Mac price in NOK}
   \item{dollar_price}{Big Mac price converted to US dollars}
-  \item{USD, EUR, GBP, JPY, CNY}{valuation of the local currency
-    against each, relative to that currency's implied Big Mac PPP rate}
+  \item{cpi}{annual average Consumer Price Index (2015=100), from `cpi` above}
 }
+Only Norway is bundled here. The full Economist dataset covers ~57
+countries back to 2000 and is one `readr::read_csv()` away from the
+source URL below if you want to look at another country.
 }
 \source{
 Statistics Norway
@@ -63,7 +62,8 @@ Statistics Norway
 
 Statistics Norway
 
-<https://github.com/TheEconomist/big-mac-data>
+<https://raw.githubusercontent.com/TheEconomist/big-mac-data/master/output-data/big-mac-raw-index.csv>,
+  full repo: <https://github.com/TheEconomist/big-mac-data>
 }
 \usage{
 employment
@@ -72,7 +72,7 @@ cpi
 
 wholesale
 
-bigmac
+bigmac_norway
 }
 \description{
 A bundle of small example datasets used in the "Adjustments,
