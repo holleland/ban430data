@@ -30,9 +30,10 @@ a future course iteration picks up the newest data automatically.
 }
 
 ## `wholesale`
-A tsibble with 275 rows and 2 columns: monthly wholesale and retail
-sales index for Norway (Statistics Norway) - already ready to use,
-no wrangling needed.
+A tsibble with 319 rows and 2 columns: monthly value index
+(unadjusted) for "Retail trade, except of motor vehicles and
+motorcycles" in Norway, live from Statistics Norway's PxWebApi (table
+07129) - already ready to use, no wrangling needed.
 \describe{
   \item{yearmonth}{month (`yearmonth`)}
   \item{Wholesale and retail sales index}{index value}
@@ -60,7 +61,7 @@ Statistics Norway
 
 <https://www.ssb.no/statbank/table/03013>
 
-Statistics Norway
+<https://www.ssb.no/statbank/table/07129>
 
 <https://raw.githubusercontent.com/TheEconomist/big-mac-data/master/output-data/big-mac-raw-index.csv>,
   full repo: <https://github.com/TheEconomist/big-mac-data>
