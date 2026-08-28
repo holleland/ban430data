@@ -122,3 +122,45 @@
 #' }
 #' @rdname timeseriesgraphics
 "z_month"
+
+#' Example datasets: Time series decomposition session
+#'
+#' A bundle of small example datasets used in the "Adjustments,
+#' Transformations and Time Series Decomposition" (BAN430 session 3)
+#' slides. All three are left in the same raw shape as their original
+#' source file - the slides' own wrangling code (renaming columns,
+#' converting to the right time class, filtering, `as_tsibble()`) is
+#' unchanged, only the data source changes.
+#'
+#' @format ## `employment`
+#' A tibble with 214 rows and 3 columns: quarterly employment in Norway
+#' by sex, ages 15-74 (Statistics Norway). Not yet a tsibble.
+#' \describe{
+#'   \item{Sex}{"Male" or "Female"}
+#'   \item{Quarter}{quarter, as character (e.g. `"1996K1"`)}
+#'   \item{Employed persons (1 000 persons)}{employed persons, thousands}
+#' }
+#' @source Statistics Norway
+#' @rdname decomposition
+"employment"
+
+#' @format ## `cpi`
+#' A data frame with 94 rows and 14 columns: raw wide-format Norwegian
+#' Consumer Price Index, 1929-2022 (Statistics Norway). `X` is the year,
+#' `Y.avg2` the annual average, `Jan`-`Dec` the monthly values (some
+#' cells are `"."` for not-yet-available months). Not yet a tsibble.
+#' @source Statistics Norway
+#' @rdname decomposition
+"cpi"
+
+#' @format ## `wholesale`
+#' A tsibble with 275 rows and 2 columns: monthly wholesale and retail
+#' sales index for Norway (Statistics Norway) - already ready to use,
+#' no wrangling needed.
+#' \describe{
+#'   \item{yearmonth}{month (`yearmonth`)}
+#'   \item{Wholesale and retail sales index}{index value}
+#' }
+#' @source Statistics Norway
+#' @rdname decomposition
+"wholesale"
