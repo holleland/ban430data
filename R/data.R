@@ -135,15 +135,19 @@
 #' @format ## `employment`
 #' A tibble with 244 rows and 3 columns: quarterly employment in Norway
 #' by sex, ages 15-74, live from Statistics Norway's PxWebApi (table
-#' 03778, Labour Force Survey, not seasonally adjusted). Not yet a
-#' tsibble. Refreshed by re-running
+#' 03778, Labour Force Survey, not seasonally adjusted). Still one row
+#' per sex per quarter (not yet a tsibble - summing/keying by `Quarter`
+#' is still part of the teaching code), but the boilerplate parts are
+#' done already: `Quarter` is a proper `yearquarter` (SSB's `"1996K1"`
+#' format isn't R's own) and the value column is already named
+#' `Employed`. Refreshed by re-running
 #' `3_decomposition_features/build_decomposition_data.R` - the query
 #' always asks for every quarter currently published, so re-running it in
 #' a future course iteration picks up the newest data automatically.
 #' \describe{
 #'   \item{Sex}{"Males" or "Females"}
-#'   \item{Quarter}{quarter, as character (e.g. `"1996K1"`)}
-#'   \item{Employed persons (1 000 persons)}{employed persons, thousands}
+#'   \item{Quarter}{quarter (`yearquarter`)}
+#'   \item{Employed}{employed persons, thousands}
 #' }
 #' @source <https://www.ssb.no/statbank/table/03778>
 #' @rdname decomposition
