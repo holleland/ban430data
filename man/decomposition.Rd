@@ -5,6 +5,7 @@
 \alias{employment}
 \alias{cpi}
 \alias{wholesale}
+\alias{wholesale_raw_lab}
 \alias{bigmac_norway}
 \alias{hotel_guestnights}
 \title{Example datasets: Time series decomposition session}
@@ -38,6 +39,17 @@ motorcycles" in Norway, live from Statistics Norway's PxWebApi (table
 \describe{
   \item{yearmonth}{month (`yearmonth`)}
   \item{Wholesale and retail sales index}{index value}
+}
+
+## `wholesale_raw_lab`
+A tibble with 319 rows and 2 columns: the same series as `wholesale`
+above, but left raw (month as character, not yet a tsibble) - used in
+the Time Series Decomposition lab's wholesale/retail task, where
+converting `month` to `yearmonth` and building the tsibble is itself
+part of the exercise.
+\describe{
+  \item{month}{month, as character (e.g. `"2000M01"`)}
+  \item{wholesale and retail sales index}{index value}
 }
 
 ## `bigmac_norway`
@@ -78,6 +90,8 @@ Statistics Norway
 
 <https://www.ssb.no/statbank/table/07129>
 
+<https://www.ssb.no/statbank/table/07129>
+
 <https://raw.githubusercontent.com/TheEconomist/big-mac-data/master/output-data/big-mac-raw-index.csv>,
   full repo: <https://github.com/TheEconomist/big-mac-data>
 
@@ -89,6 +103,8 @@ employment
 cpi
 
 wholesale
+
+wholesale_raw_lab
 
 bigmac_norway
 

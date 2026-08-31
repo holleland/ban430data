@@ -172,6 +172,20 @@
 #' @rdname decomposition
 "wholesale"
 
+#' @format ## `wholesale_raw_lab`
+#' A tibble with 319 rows and 2 columns: the same series as `wholesale`
+#' above, but left raw (month as character, not yet a tsibble) - used in
+#' the Time Series Decomposition lab's wholesale/retail task, where
+#' converting `month` to `yearmonth` and building the tsibble is itself
+#' part of the exercise.
+#' \describe{
+#'   \item{month}{month, as character (e.g. `"2000M01"`)}
+#'   \item{wholesale and retail sales index}{index value}
+#' }
+#' @source <https://www.ssb.no/statbank/table/07129>
+#' @rdname decomposition
+"wholesale_raw_lab"
+
 #' @format ## `bigmac_norway`
 #' A tsibble with 41 rows and 4 columns: Norway's Big Mac price
 #' (semi-annual, 2002-2026), already joined to an annual Norwegian CPI -
