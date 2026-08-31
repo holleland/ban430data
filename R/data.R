@@ -133,14 +133,19 @@
 #' `as_tsibble()`) does the actual teaching work.
 #'
 #' @format ## `employment`
-#' A tibble with 214 rows and 3 columns: quarterly employment in Norway
-#' by sex, ages 15-74 (Statistics Norway). Not yet a tsibble.
+#' A tibble with 244 rows and 3 columns: quarterly employment in Norway
+#' by sex, ages 15-74, live from Statistics Norway's PxWebApi (table
+#' 03778, Labour Force Survey, not seasonally adjusted). Not yet a
+#' tsibble. Refreshed by re-running
+#' `3_decomposition_features/build_decomposition_data.R` - the query
+#' always asks for every quarter currently published, so re-running it in
+#' a future course iteration picks up the newest data automatically.
 #' \describe{
-#'   \item{Sex}{"Male" or "Female"}
+#'   \item{Sex}{"Males" or "Females"}
 #'   \item{Quarter}{quarter, as character (e.g. `"1996K1"`)}
 #'   \item{Employed persons (1 000 persons)}{employed persons, thousands}
 #' }
-#' @source Statistics Norway
+#' @source <https://www.ssb.no/statbank/table/03778>
 #' @rdname decomposition
 "employment"
 
