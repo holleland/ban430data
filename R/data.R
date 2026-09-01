@@ -205,7 +205,7 @@
 #' official one.
 #' \describe{
 #'   \item{yearmonth}{month (`yearmonth`)}
-#'   \item{Wholesale and retail sales index (seasonally adjusted)}{index value, seasonally adjusted}
+#'   \item{index_sa}{index value, seasonally adjusted}
 #' }
 #' @source <https://www.ssb.no/statbank/table/07129>
 #' @rdname decomposition
