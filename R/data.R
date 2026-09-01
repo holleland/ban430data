@@ -195,6 +195,22 @@
 #' @rdname decomposition
 "wholesale_raw_lab"
 
+#' @format ## `wholesale_sa`
+#' A tsibble with 319 rows and 2 columns: SSB's own **seasonally
+#' adjusted** version of the `wholesale`/`wholesale_raw_lab` series
+#' (same table 07129, same NACE=47 filter, `ContentsCode = VerdiinSesong`
+#' instead of `Verdiindeks`) - already ready to use, no wrangling needed.
+#' Meant for comparing a student's own seasonal adjustment (from the
+#' Lab_decomposition.qmd wholesale task) against the statistical agency's
+#' official one.
+#' \describe{
+#'   \item{yearmonth}{month (`yearmonth`)}
+#'   \item{Wholesale and retail sales index (seasonally adjusted)}{index value, seasonally adjusted}
+#' }
+#' @source <https://www.ssb.no/statbank/table/07129>
+#' @rdname decomposition
+"wholesale_sa"
+
 #' @format ## `bigmac_norway`
 #' A tsibble with 41 rows and 4 columns: Norway's Big Mac price
 #' (semi-annual, 2002-2026), already joined to an annual Norwegian CPI -

@@ -6,6 +6,7 @@
 \alias{cpi}
 \alias{wholesale}
 \alias{wholesale_raw_lab}
+\alias{wholesale_sa}
 \alias{bigmac_norway}
 \alias{hotel_guestnights}
 \title{Example datasets: Time series decomposition session}
@@ -61,6 +62,19 @@ part of the exercise.
   \item{wholesale and retail sales index}{index value}
 }
 
+## `wholesale_sa`
+A tsibble with 319 rows and 2 columns: SSB's own **seasonally
+adjusted** version of the `wholesale`/`wholesale_raw_lab` series
+(same table 07129, same NACE=47 filter, `ContentsCode = VerdiinSesong`
+instead of `Verdiindeks`) - already ready to use, no wrangling needed.
+Meant for comparing a student's own seasonal adjustment (from the
+Lab_decomposition.qmd wholesale task) against the statistical agency's
+official one.
+\describe{
+  \item{yearmonth}{month (`yearmonth`)}
+  \item{Wholesale and retail sales index (seasonally adjusted)}{index value, seasonally adjusted}
+}
+
 ## `bigmac_norway`
 A tsibble with 41 rows and 4 columns: Norway's Big Mac price
 (semi-annual, 2002-2026), already joined to an annual Norwegian CPI -
@@ -101,6 +115,8 @@ a different series from `wholesale` (reserved for the Thursday lab).
 
 <https://www.ssb.no/statbank/table/07129>
 
+<https://www.ssb.no/statbank/table/07129>
+
 <https://raw.githubusercontent.com/TheEconomist/big-mac-data/master/output-data/big-mac-raw-index.csv>,
   full repo: <https://github.com/TheEconomist/big-mac-data>
 
@@ -114,6 +130,8 @@ cpi
 wholesale
 
 wholesale_raw_lab
+
+wholesale_sa
 
 bigmac_norway
 
