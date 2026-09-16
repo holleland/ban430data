@@ -248,3 +248,47 @@
 #' @source <https://www.ssb.no/statbank/table/14166>
 #' @rdname decomposition
 "hotel_guestnights"
+
+#' Example datasets: Time series regression session (Bergen traffic lab)
+#'
+#' Hourly traffic sensor counts and a Norwegian public holiday calendar,
+#' used in the Bergen traffic forecast lab (`Lab_regression.qmd`) - an
+#' extended, regularly-refreshable version of the same case study as the
+#' `WS_traffic.qmd` workshop (which keeps its own static, unrelated CSVs on
+#' GitHub - this bundle is only used by the lab). `traffic_danmarksplass`
+#' already has the ferry-traffic sensor (Moberg v/Lekven) merged in as its
+#' own column - the lab is meant to spend its time on modelling and
+#' evaluation, not on rejoining two raw hourly series by datetime, so that
+#' join is done once here rather than once per student. It's kept raw
+#' (plain tibble, not yet a tsibble) on purpose, since building the tsibble
+#' is itself part of the lab's first task. `holidays_no` stays separate -
+#' turning it into an `is_holiday` column is kept as a short, explicit
+#' lab exercise. Refreshed by re-running
+#' `5_regression/build_regressionlab_data.R` - the traffic pull always asks
+#' for data up through "today", and the holiday calendar is computed (not
+#' downloaded), so re-running it in a future course iteration automatically
+#' extends both.
+#'
+#' @format ## `traffic_danmarksplass`
+#' A tibble with hourly rows, 2018-01-01 onwards:
+#' \describe{
+#'   \item{datetime}{date-time, hourly resolution (Europe/Oslo)}
+#'   \item{vehicles}{vehicles counted at Danmarksplass ("ved ladestasjon") in the previous hour}
+#'   \item{moberg}{vehicles counted at Moberg v/Lekven (Halhjem ferry-arrival traffic) in the previous hour}
+#' }
+#' @source <https://www.vegvesen.no/trafikkdata/>, stations 14630V805616 (Danmarksplass) and 41273V805613 (Moberg v/Lekven)
+#' @rdname regressionlab
+"traffic_danmarksplass"
+
+#' @format ## `holidays_no`
+#' A tibble with one row per Norwegian public holiday date, 2018-2027:
+#' fixed dates (New Year's Day, Labour Day, Constitution Day, Christmas,
+#' Boxing Day) plus the Easter-relative dates (Palm Sunday through Easter
+#' Monday, Ascension Day, Whit Sunday/Monday), computed from Easter Sunday
+#' rather than downloaded - see `compute_norwegian_holidays()` in the build
+#' script for the (deterministic) rule.
+#' \describe{
+#'   \item{date}{holiday date}
+#' }
+#' @rdname regressionlab
+"holidays_no"
