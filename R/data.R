@@ -292,3 +292,55 @@
 #' }
 #' @rdname regressionlab
 "holidays_no"
+
+#' Example datasets: Exponential smoothing session (ETS lab)
+#'
+#' Two series used in the ETS lab (`Lab_ets.qmd`) alongside `hotel_guestnights`
+#' (already bundled under the `decomposition` topic), chosen so that
+#' different ETS(Error,Trend,Season) setups each turn out to be the genuine
+#' best choice on a held-out test set - `hotel_guestnights` has real trend
+#' and season, so Holt-Winters wins there, but neither of these two does.
+#' Refreshed by re-running `6_ETS/build_ets_data.R` - both queries always ask
+#' for data up through "today", so re-running it in a future course
+#' iteration automatically extends both.
+#'
+#' @format ## `exchange_usdnok`
+#' A tsibble with 200+ rows: monthly average USD/NOK spot exchange rate,
+#' 2010 onwards - close to a random walk, with no real trend or season, so
+#' simple exponential smoothing is hard to beat and an un-damped trend
+#' actively hurts.
+#' \describe{
+#'   \item{month}{month (`yearmonth`)}
+#'   \item{rate}{average USD/NOK spot rate that month}
+#' }
+#' @source <https://app.norges-bank.no/query/#/en/exchange_rate>
+#' @rdname ets_lab
+"exchange_usdnok"
+
+#' @format ## `population_no`
+#' A tsibble with 115+ rows: Norway's national population at the start of
+#' each quarter, 1997 Q4 onwards - a strong, smooth trend with essentially
+#' no seasonality, so a damped trend model wins and a seasonal term doesn't
+#' help.
+#' \describe{
+#'   \item{quarter}{quarter (`yearquarter`)}
+#'   \item{population}{population at the start of the quarter}
+#' }
+#' @source <https://www.ssb.no/statbank/table/01222>
+#' @rdname ets_lab
+"population_no"
+
+#' @format ## `policy_rate_no`
+#' A tsibble with 200+ rows: Norges Bank's key policy rate ("styringsrenten"),
+#' monthly, 2010 onwards - the dramatic damped-vs-linear-trend illustration.
+#' Trained only through the end of the rapid 2022-2023 hiking cycle, a plain
+#' (undamped) Holt trend extrapolates continued hikes indefinitely, while
+#' the actual rate plateaued and then started cutting - a damped trend
+#' tracks that far better.
+#' \describe{
+#'   \item{month}{month (`yearmonth`)}
+#'   \item{rate}{key policy rate that month, percent}
+#' }
+#' @source <https://app.norges-bank.no/query/#/en/interest>
+#' @rdname ets_lab
+"policy_rate_no"
