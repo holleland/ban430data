@@ -344,3 +344,62 @@
 #' @source <https://app.norges-bank.no/query/#/en/interest>
 #' @rdname ets_lab
 "policy_rate_no"
+
+#' Global land-ocean temperature index
+#'
+#' NASA GISS Surface Temperature Analysis (GISTEMP v4), annual mean
+#' land-ocean temperature index, 1880 onwards. Used in the "Example: Global
+#' temperature" slides in the ARIMA session (`ARIMA_part2.qmd`).
+#'
+#' @format ## `global_temp`
+#' A tsibble with 144 rows and 3 columns:
+#' \describe{
+#'   \item{Year}{year}
+#'   \item{No_Smoothing}{annual mean temperature anomaly relative to the
+#'   1951-1980 base period, degrees Celsius}
+#'   \item{Lowess.5.}{same series, smoothed with a 5-year LOWESS}
+#' }
+#' @source <https://data.giss.nasa.gov/gistemp/>
+"global_temp"
+
+#' Mean monthly temperature in Bergen
+#'
+#' Monthly mean temperature at the Bergen - Florida weather station (SN50540),
+#' January 1949 to September 2026, as published by the Norwegian
+#' Meteorological Institute (seklima.met.no). Used in the "Bergen mean
+#' temperature" example in the seasonal ARIMA session.
+#'
+#' @format ## `bergentemp_monthly`
+#' A tsibble with 933 rows and 2 columns:
+#' \describe{
+#'   \item{ym}{month (`yearmonth`)}
+#'   \item{meantemp}{mean temperature that month, degrees Celsius}
+#' }
+#' @source <https://seklima.met.no>
+"bergentemp_monthly"
+
+#' Daily electricity spot prices in Norway
+#'
+#' Daily mean day-ahead spot prices for the five Norwegian price areas
+#' (NO1-NO5), from 1 December 2021 onwards, as published by
+#' hvakosterstrommen.no (Nord Pool day-ahead prices). Used in the mandatory
+#' assignment. This is a snapshot; the range of the dates is the date the
+#' snapshot was built.
+#'
+#' The prices are in NOK/kWh **excluding VAT** (mva), grid tariffs and taxes.
+#' (Note that the Norwegian consumer prices quoted in the media usually include
+#' VAT, which is 25 percent in NO1, NO2, NO3 and NO5 and zero in NO4.)
+#' The daily value is the plain mean of the hourly prices that day, and only
+#' complete days are included. The monthly mean is the plain mean of the
+#' daily means.
+#'
+#' @format ## `elprices_daily`
+#' A tsibble keyed by `area`, with one row per area and day:
+#' \describe{
+#'   \item{area}{price area: "NO1" (East), "NO2" (South), "NO3" (Mid), "NO4" (North) or "NO5" (West)}
+#'   \item{date}{date}
+#'   \item{price}{daily mean spot price, NOK/kWh excluding VAT}
+#'   \item{n_hours}{number of hourly prices that day (24, or 23 and 25 on the daylight saving days)}
+#' }
+#' @source <https://www.hvakosterstrommen.no>
+"elprices_daily"

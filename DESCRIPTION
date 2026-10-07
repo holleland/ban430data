@@ -13,5 +13,9 @@ Depends:
 Imports:
     fpp3,
     tsibble,
-    lubridate
+    lubridate,
+    dplyr,
+    tibble,
+    jsonlite,
+    curl
 Config/roxygen2/version: 8.0.0
