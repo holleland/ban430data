@@ -425,3 +425,25 @@
 #' }
 #' @source <https://finance.yahoo.com/quote/MSFT>
 "msft"
+
+#' Weekly sales for 45 Walmart stores
+#'
+#' Weekly sales for 45 Walmart stores from February 2010 to October 2012, with
+#' information on holidays, temperature, fuel prices, the consumer price index
+#' and the unemployment rate. The data are publicly available on Kaggle under a
+#' CC0 licence. Used in the Walmart lab.
+#'
+#' @format ## `walmart`
+#' A tibble with 6,435 rows (143 weeks for each of the 45 stores) and 8 columns:
+#' \describe{
+#'   \item{Store}{store number, 1 to 45}
+#'   \item{Date}{the date of the Friday of the sales week}
+#'   \item{Weekly_Sales}{sales for the store in the week, USD}
+#'   \item{Holiday_Flag}{1 if the week contains a special holiday (Super Bowl, Labour Day, Thanksgiving or Christmas), otherwise 0}
+#'   \item{Temperature}{temperature on the day of sale, degrees Fahrenheit}
+#'   \item{Fuel_Price}{cost of fuel in the region, USD per gallon}
+#'   \item{CPI}{prevailing consumer price index}
+#'   \item{Unemployment}{prevailing unemployment rate, percent}
+#' }
+#' @source <https://www.kaggle.com/datasets/yasserh/walmart-dataset>
+"walmart"
