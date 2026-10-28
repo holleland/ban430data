@@ -447,3 +447,83 @@
 #' }
 #' @source <https://www.kaggle.com/datasets/yasserh/walmart-dataset>
 "walmart"
+
+#' Data sets from the BAN430 exam in spring 2023 (V23)
+#'
+#' The two data sets that were attached to the spring 2023 exam: a Norwegian
+#' house price index (Assignment 2) and waiting times at the Panama canal
+#' (Assignment 3). Load both with `data(V23)`.
+#'
+#' @format ## `houseprices`
+#' A tsibble with 72 quarterly observations (2005 Q1 to 2022 Q4) and 3 columns:
+#' \describe{
+#'   \item{quarter}{year and quarter of the observation}
+#'   \item{priceindex}{(unadjusted) price index}
+#'   \item{seasonally_adjusted}{seasonally adjusted price index (Statistics Norway)}
+#' }
+#' @source Statistics Norway, <https://www.ssb.no/en/priser-og-prisindekser/boligpriser-og-boligprisindekser/statistikk/prisindeks-for-brukte-boliger>
+#' @rdname V23
+"houseprices"
+
+#' @format ## `panamacanal`
+#' A grouped tibble (by `vessel_type` and `transit_bound`) with 2,223 rows and
+#' 12 columns, weekly from 2019 W01 to 2021 W51. `year_week` is a character
+#' column and has to be converted with `yearweek()` before it is used as the
+#' index of a tsibble, as in the exam.
+#' \describe{
+#'   \item{year_week}{year and week of the observation, as text}
+#'   \item{vessel_type}{vessel type}
+#'   \item{transit_bound}{direction of the transit, `"North"` or `"South"`}
+#'   \item{waiting_time}{weekly average waiting time, hours}
+#'   \item{transits_lag_1}{average number of transits per week, the week before}
+#'   \item{sog_lag_1}{average speed over ground in knots of vessels heading to the canal, the week before}
+#'   \item{gatun_level_mt_lag_1}{Gatun lake level in metres, the week before}
+#'   \item{visibility_culebra_lag_1, visibility_limon_lag_1, visibility_corozal_lag_1, visibility_gatun_lag_1}{visibility in miles at the four stations, the week before}
+#'   \item{waiting_time_lag_1}{waiting time in hours, the week before}
+#' }
+#' @source Fuentes and Adland (2023), <https://doi.org/10.1016/j.trd.2023.103694>.
+#'   The visibility variables are from the ERA5 climate model.
+#' @rdname V23
+"panamacanal"
+
+#' Data sets from the BAN430 exam in spring 2024 (V24)
+#'
+#' The data sets that were used in the spring 2024 exam: registered cases of
+#' gonorrhea in Norway (Assignment 2) and the filling degree of the Norwegian
+#' water reservoirs, with the capacity of the areas (Assignment 3). Load all
+#' three with `data(V24)`. The Walmart data used in Assignment 1 are in the
+#' `walmart` data set.
+#'
+#' @format ## `gonorrhea`
+#' A tsibble with 375 monthly observations (January 1993 to March 2024),
+#' keyed by `decease`:
+#' \describe{
+#'   \item{yearmonth}{year and month of the observation}
+#'   \item{decease}{name of the disease (only gonorrhea)}
+#'   \item{count}{number of registered cases in the month}
+#' }
+#' @source The Norwegian Surveillance System for Communicable Diseases (MSIS),
+#'   Norwegian Institute of Public Health, <https://allvis.fhi.no/msis>
+#' @rdname V24
+"gonorrhea"
+
+#' @format ## `reservoirs`
+#' A tsibble with 4,578 weekly observations (1995 W01 to 2024 W13), keyed by `area`:
+#' \describe{
+#'   \item{yearweek}{year and week of the observation}
+#'   \item{area}{reservoir area: `"VASS 1"`, `"VASS 2"` or `"VASS 3"`}
+#'   \item{filling_degree}{filling degree as a fraction of full capacity}
+#' }
+#' @source NVE, <https://www.nve.no/energi/analyser-og-statistikk/magasinstatistikk/>
+#' @rdname V24
+"reservoirs"
+
+#' @format ## `nve_capacities`
+#' A tibble with the storage capacity of the reservoir areas (9 rows):
+#' \describe{
+#'   \item{Area}{area: `"VASS 1"` to `"VASS 3"`, `"NO 1"` to `"NO 5"` and `"NORGE"`}
+#'   \item{Capacity (TWh)}{capacity in terawatt hours}
+#' }
+#' @source NVE, <https://www.nve.no/energi/analyser-og-statistikk/magasinstatistikk/>
+#' @rdname V24
+"nve_capacities"
